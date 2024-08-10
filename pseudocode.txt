@@ -1,0 +1,139 @@
+# calculator
+
+1. Basic Math Functions
+
+    Function add(a, b):
+        Return a + b
+
+    Function subtract(a, b):
+        Return a - b
+    
+    Function multiply(a, b):
+        Return a * b
+
+    Function divide(a, b):
+        If b == 0:
+            Return "Error: Cannot divide by zero"
+        Else:
+            Return a / b
+
+
+2. Variable for Calculator Operation
+
+    Variable firstNumber = null
+    Variable secondNumber = null
+    Variable operator = null
+    Variable displayValue = "" 
+
+
+3. Operate Function
+
+    Function operate(operator, firstNumber, secondNumber):
+        If operator == "+":
+            Return add(firstNumber, secondNumber)
+        If operator == "-":
+            Return subtract(firstNumber, secondNumber)
+        If operator == "*":
+            Return multiply(firstNumber, secondNumber)
+        If operator == "/":
+            Return divide(firstNumber, secondNumber)
+
+
+4. Basic HTML Structure for Calculator
+
+    Create an HTML structure with buttons for digits (0-9), 
+        operators (+,-,*,/),
+        an equals button (=), 
+        a clear button (C),
+        and a display area.
+
+
+5. Populate Display on Button Clicks
+
+    Function updateDisplay(value):
+        Append value to displayValue
+        Update the display area with displayValue
+    
+    For each digit button:
+        On click:
+            Call updateDisplay(digit)
+    
+    For each operator button:
+        On click:
+            If firstNumber is null:
+                firstNumber = displayValue
+            Else If secondNumber is null:
+                secondNumber = displayValue
+                firstNumber = operate(operator, firstNumber, secondNumber)
+                Update display with firstNumber
+                secondNumber = null
+            operator = the operator clicked
+            Clear displayValue for next number input
+
+    For equals button:
+        On click:
+            If firstNumber is not null and operator is not null:
+                secondNumber = displayValue
+                result = operate(operator, firstNumber, secondNumber)
+                Update display with result
+                Set firstNumber = result, secondNumber = null, operator = null
+
+    For clear button:
+        On click:
+            Clear firstNumber, secondNumber, operator, displayValue
+            Rest the display
+
+
+6. Handling Edge Cases:
+
+    Function handleErrors():
+        If operator is "/" and secondNumber == 0:
+            Display "Error: Cannot divide by zero"
+        If equals button is pressed without valid input:
+            Display error message or ignore input
+
+    Function handleMultipleOperations():
+        If operator is pressed after an existing operation:
+            Evaluate the first operation, display the result, and set up for the next operation
+
+    Function handleDecimalInput():
+        If the decimal button is clicked:
+            If displayValue does not already contain a decimal:
+                Append a decimal to displayValue
+                Update the display
+
+7. Extra Features
+
+    For decimal button:
+        On click:
+            If displayValue does not already contain a ".":
+                Call updateDisplay(",")
+
+    For backspace button:
+        On click:
+            Remove the last character from displayValue
+            Update the display
+
+    For keyboard support:
+        Listen for keydown events
+        Map keys to corresponding button clicks 
+
+
+8. Visual and UX Enhancements
+
+    Style the calculator with CSS:
+        Differentiate the operator buttons from the number buttons
+        Use a consistent color scheme
+        Add hover effects to buttons for better UX
+        Ensure the display area can handle large numbers and scale down if necessary
+
+    Handle rounding for long decimals:
+        If results has too many decimal places:
+            Round to a fixed number of decimals before displaying
+        
+9. Putting It All Together 
+
+    Initialize the calculator by adding event listeners to all buttons
+    Ensure the display is updated whenever any button is pressed
+    Handle all edge cases to avoid crashes or unexpected behavior
+    
