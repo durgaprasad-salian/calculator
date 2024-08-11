@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+#display {
+    height: 100px;
+    background-color: white;
+    color: white;
+    text-align: right;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    height: 25%;
+}
+
+#top button {
+    background-color: #888;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    flex: 1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#solar {
+    border: 1px solid black;
+    display: flex;
+}
+
+#solar div {
+    width: 20px;
+    height: 20px;
+    background-color: #575555;
+    border: 1px solid black;
+}
+
+#bottom {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+
+#bottom > button {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    flex: 1 1 22%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom button:hover {
+    background-color: #777;
+}
+
+#top #clear {
+    background-color: orange;
+}
+
+#top #clear:hover {
+    background-color: rgb(196, 129, 5);
+}
+
+#top #delete {
+    background-color: red;
+}
+
+#top #delete:hover {
+    background-color: rgb(160, 5, 5);
+}
+
+#bottom #equals {
+    background-color: rgb(9, 178, 245);
+}
+
+#bottom #equals:hover {
+    background-color: rgb(0, 110, 153);
+}
+
+#bottom .operation {
+    background-color: yellow;
+    color: black;
+}
+
+#bottom .operation:hover {
+    background-color: rgb(201, 201, 37);
+    color: black;
+}
