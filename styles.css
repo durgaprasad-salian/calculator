@@ -27,13 +27,29 @@ body {
 #display {
     height: 100px;
     background-color: white;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: right;
-    padding: 20px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 2rem;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Inconsolata', monospace;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#operation {
+    font-size: 1.2rem;
+    color: black;
+    height: 30%;
+}
+
+#currentValue {
+    font-size: 1.5rem;
+    height: 70%;
 }
 
 .buttonsContainer {
@@ -44,6 +60,7 @@ body {
 
 #top {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
@@ -52,23 +69,29 @@ body {
 }
 
 #top button {
-    background-color: #888;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px 2.5px;
     flex: 1;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #solar {
-    border: 1px solid black;
+    border: 1px double black;
     display: flex;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    flex: 1;
 }
 
+
 #solar div {
-    width: 20px;
+    /* width: 20px;
+    height: 20px; */
+    flex-grow: 1;
     height: 20px;
     background-color: #575555;
     border: 1px solid black;
