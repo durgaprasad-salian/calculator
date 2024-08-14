@@ -12,7 +12,7 @@ function multiply(a, b){
 
 function divide(a, b){
 
-    if(b === 0) return undefined;
+    if(b === 0) return "Cant divide by 0";
 
     return a/b ;
 }
@@ -207,3 +207,51 @@ document.querySelectorAll('.buttonsContainer button').forEach((button) => {
 
     });
 });
+
+
+//keyboard support 
+
+function handleKeyPress(event) {
+    const key = event.key;
+
+    if(!isNaN(key)) {
+
+        handleNumberClick(key);
+    
+    } else if(key === 'Enter') {
+
+        event.preventDefault();
+        handleEqualsClick();
+    
+    } else if(key === 'Backspace') {
+
+        handleDeleteClick();
+
+    } else if(key === 'Escape') {
+
+        clearCalculator();
+    
+    } else if(key === '.') {
+
+        handleDotClick();
+
+    } else if (['+', '-', '*', '/'].includes(key)) {
+
+        if(key === '/') {
+
+            handleOperatorClick('÷');
+
+        } else if (key === '*'){
+
+            handleOperatorClick('x');
+
+        } else {
+
+            handleOperatorClick(key);
+        }
+    }
+}
+
+document.addEventListener('keydown', handleKeyPress);
+
+clearCalculator();
