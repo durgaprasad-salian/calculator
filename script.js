@@ -12,7 +12,7 @@ function multiply(a, b){
 
 function divide(a, b){
 
-    if(b === 0) return "Cant divide by 0";
+    if(b === 0) return "/0 not allowed";
 
     return a/b ;
 }
